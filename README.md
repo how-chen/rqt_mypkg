@@ -46,5 +46,8 @@ create a plugin.xml file with the following code:
   </class>
 </library>
 ```
+#2. Create a python plugin
+Based on the [rQT Python Plugin ROS Tutorial](http://wiki.ros.org/rqt/Tutorials/Writing%20a%20Python%20Plugin)
+
 
 
