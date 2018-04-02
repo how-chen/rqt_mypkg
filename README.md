@@ -148,3 +148,7 @@ d = generate_distutils_setup(
 )
 ```
 
+uncomment the following from the CMakeLists.txt
+```
+catkin_python_setup()
+```
