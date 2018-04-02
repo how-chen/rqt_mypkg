@@ -67,7 +67,6 @@ create __init__.py
 ```
 
 within the same folder, create my_module.py with the following contents:
-note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
 
 ```
 import os
@@ -134,6 +133,8 @@ class MyPlugin(Plugin):
         # This will enable a setting button (gear icon) in each dock widget title bar
         # Usually used to open a modal configuration dialog
 ```
+note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
+
 
 
 # 3. Install
