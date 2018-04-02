@@ -158,3 +158,10 @@ uncomment the following from the CMakeLists.txt
 catkin_python_setup()
 ```
 
+
+
+```
+% roscd rqt_mypkg
+% cd scripts
+% chmod +x rqt_mypkg
+```
