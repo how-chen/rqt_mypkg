@@ -153,7 +153,7 @@ d = generate_distutils_setup(
     package_dir={'': 'src'},
 )
 
-setup(**setup_args)
+setup(**d)
 ```
 
 uncomment the following from the CMakeLists.txt
