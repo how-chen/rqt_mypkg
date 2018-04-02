@@ -46,8 +46,20 @@ create a plugin.xml file with the following code:
   </class>
 </library>
 ```
-#2. Create a python plugin
+# 2. Create a python plugin
 Based on the [rQT Python Plugin ROS Tutorial](http://wiki.ros.org/rqt/Tutorials/Writing%20a%20Python%20Plugin)
+
+create src/rqt_mypkg/ inside the rqt_mypkg package directory
+```
+% roscd rqt_mypkg
+% mkdir -p src/rqt_mypkg
+```
+
+note: if roscd does not work, 
+```
+% cd ~/[workspace_name]
+% source ./devel/setup.bash
+```
 
 
 
