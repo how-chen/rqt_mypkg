@@ -134,5 +134,17 @@ class MyPlugin(Plugin):
 ```
 
 
+# 3. Install
+navigate to the base directory
+```
+roscd rqt_mypkg
+```
 
+create setup.py script with the following:
+```
+d = generate_distutils_setup(
+    packages=['rqt_mypkg'],
+    package_dir={'': 'src'},
+)
+```
 
