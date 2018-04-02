@@ -67,6 +67,8 @@ create __init__.py
 ```
 
 within the same folder, create my_module.py with the following contents:
+note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
+
 ```
 import os
 import rospy
