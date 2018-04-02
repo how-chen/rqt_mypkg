@@ -11,7 +11,7 @@ cd ~/catkin_ws/src
 
 Create empty rqt package
 ```
-catkin_create_pkg rqt_mypkg rospy rqt_gui rqt_gui_pycatkin_create_pkg rqt_mypkg rospy rqt_gui rqt_gui_py
+catkin_create_pkg rqt_mypkg rospy rqt_gui rqt_gui_py
 ```
 
 ## Edit the package.xml file.
