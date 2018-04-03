@@ -269,6 +269,12 @@ Specify the main execution script
 % catkin_make
 ```
 
+## Start Roscore
+In a new terminal window
+```
+% roscore
+```
+
 ## Run your RQT script
 ```
 rosrun rqt_mypkg rqt_mypkg
