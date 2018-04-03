@@ -141,7 +141,8 @@ Next, create a 'scripts' folder
 % mkdir scripts
 ```
 
-inside the 'scripts' folder, make a file called rqt_mypkg with the following contents
+inside the 'scripts' folder, make a file called rqt_mypkg with the following contents. This is the 'point of entry' for rqt. 
+
 ```
 #!/usr/bin/env python
 
@@ -154,7 +155,6 @@ plugin = 'rqt_mypkg'
 main = Main(filename=plugin)
 sys.exit(main.main(standalone=plugin))
 ```
-
 
 
 # 3. Install
