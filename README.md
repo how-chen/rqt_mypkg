@@ -135,6 +135,26 @@ class MyPlugin(Plugin):
 ```
 note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
 
+Next, create a 'scripts' folder
+```
+% roscd rqt_mypkg
+% mkdir scripts
+```
+
+inside the 'scripts' folder, make a file called rqt_mypkg with the following contents
+```
+#!/usr/bin/env python
+
+import sys
+
+from rqt_mypkg.my_module import MyPlugin
+from rqt_gui.main import Main
+
+plugin = 'rqt_mypkg'
+main = Main(filename=plugin)
+sys.exit(main.main(standalone=plugin))
+```
+
 
 
 # 3. Install
