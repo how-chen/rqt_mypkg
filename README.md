@@ -209,6 +209,7 @@ navigate to the base directory
 roscd rqt_mypkg
 ```
 
+## setup.py
 create setup.py script with the following:
 ```
 from distutils.core import setup
@@ -222,14 +223,46 @@ d = generate_distutils_setup(
 setup(**d)
 ```
 
-uncomment the following from the CMakeLists.txt
+## CMakeLists
+open the CMakeLists
+```
+% roscd rqt_mypkg
+% gedit CMakeLists.txt
+```
+
+uncomment (delete the '#' symbol) the following from the CMakeLists.txt
 ```
 catkin_python_setup()
 ```
+uncomment the following lines: 
+```
+install(PROGRAMS
+  scripts/rqt_mypkg
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+```
+and add the following lines before 'Testing'
 
+```
+install(DIRECTORY
+  resource
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 
+install(FILES
+  plugin.xml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+```
+
+## Specify main script 
+Specify the main execution script 
 ```
 % roscd rqt_mypkg
 % cd scripts
 % chmod +x rqt_mypkg
+```
+## Run your RQT script
+```
+rosrun rqt_mypkg rqt_mypkg
 ```
