@@ -237,11 +237,11 @@ catkin_python_setup()
 uncomment the following lines: 
 ```
 install(PROGRAMS
-  scripts/rqt_mypkg
+  scripts/my_python_script
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 ```
-and add the following lines before 'Testing'
+and change `scripts/my_python_script` to `scripts/rqt_mypkg`. Also, before 'Testing', add the following: 
 
 ```
 install(DIRECTORY
