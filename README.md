@@ -1,9 +1,45 @@
 # rqt_mypkg
 Trying to make sense of [Create your new rqt plugin](http://wiki.ros.org/rqt/Tutorials/Create%20your%20new%20rqt%20plugin#Install_.26_Run_your_plugin) from ROS rQT Tutorials which is missing a lot of pieces. Will update the wiki soon. Much of this is from [Lucas Walter's rqt_mypkg implementation](https://github.com/lucasw/rqt_mypkg/tree/master/rqt_example_py)
 
-## 1. Create your rqt plugin package 
+## Executing this program: 
+### 1. Clone the repository
+```
+% cd [catkin workspace]/src
+% git clone https://github.com/how-chen/rqt_mypkg.git
+```
+
+### 2. Specify execution script
+```
+% roscd rqt_mypkg/scripts
+% chmod +x rqt_mypkg
+```
+
+note: if roscd does not work, 
+```
+% cd ~/[workspace_name]
+% source ./devel/setup.bash
+```
+
+### 3. Run Catkin Make
+```
+% cd [catkin workspace]
+% catkin_make
+```
+### 4. Start roscore
+In a new terminal window
+```
+% roscore
+```
+
+### 5. Run Script
+```
+% rosrun rqt_mypkg rqt_mypkg
+```
+
+## Creating rqt plugin from scratch
 The following is largely from: [Create your rqt plugin package](http://wiki.ros.org/rqt/Tutorials/Create%20your%20new%20rqt%20plugin#Install_.26_Run_your_plugin)
 
+### 1. Create your rqt plugin package 
 Navigate to the source folder within your catkin workspace directory.
 ```
 cd ~/catkin_ws/src
@@ -14,14 +50,14 @@ Create empty rqt package
 catkin_create_pkg rqt_mypkg rospy rqt_gui rqt_gui_py
 ```
 
-## Edit the package.xml file.
+#### Edit the package.xml file.
 Between the `<export>`  `</export>` tags, add the following:
 
 ```
 <rqt_gui plugin="${prefix}/plugin.xml"/>
 ```
 
-## Create the plugin.xml file
+#### Create the plugin.xml file
 create a plugin.xml file with the following code: 
 
 ```
@@ -46,10 +82,10 @@ create a plugin.xml file with the following code:
   </class>
 </library>
 ```
-# 2. Create a python plugin
+### 2. Create a python plugin
 Based on the [rQT Python Plugin ROS Tutorial](http://wiki.ros.org/rqt/Tutorials/Writing%20a%20Python%20Plugin)
 
-## Create a GUI Layout
+#### Create a GUI Layout
 You can create a GUI using QT designer. This will output a .ui file. For this exercise, we will use a pre-made gui. Create a 'resource' folder inside the rqt_mypkg folder. 
 ```
 % roscd rqt_mypkg
@@ -98,7 +134,7 @@ within the resource folder, create a file called 'MyPlugin.ui' with the followin
 </ui>
 ```
 
-## GUI Script 
+#### GUI Script 
 make the src/rqt_mypkg/ folder inside the rqt_mypkg package directory
 ```
 % roscd rqt_mypkg
@@ -180,7 +216,7 @@ class MyPlugin(Plugin):
 ```
 note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
 
-## Main script
+#### Main script
 Create a 'scripts' folder
 ```
 % roscd rqt_mypkg
@@ -203,13 +239,13 @@ sys.exit(main.main(standalone=plugin))
 ```
 
 
-# 3. Install
+### 3. Install
 navigate to the base directory
 ```
 roscd rqt_mypkg
 ```
 
-## setup.py
+#### setup.py
 create setup.py script with the following:
 ```
 from distutils.core import setup
@@ -223,7 +259,7 @@ d = generate_distutils_setup(
 setup(**d)
 ```
 
-## CMakeLists
+#### CMakeLists
 open the CMakeLists
 ```
 % roscd rqt_mypkg
@@ -255,7 +291,7 @@ install(FILES
 )
 ```
 
-## Specify main script 
+#### Specify main script 
 Specify the main execution script 
 ```
 % roscd rqt_mypkg
@@ -263,19 +299,19 @@ Specify the main execution script
 % chmod +x rqt_mypkg
 ```
 
-## Run Catkin Make
+#### Run Catkin Make
 ```
 % cd [catkin workspace]
 % catkin_make
 ```
 
-## Start Roscore
+#### Start Roscore
 In a new terminal window
 ```
 % roscore
 ```
 
-## Run your RQT script
+#### Run your RQT script
 ```
 rosrun rqt_mypkg rqt_mypkg
 ```
