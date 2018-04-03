@@ -262,6 +262,13 @@ Specify the main execution script
 % cd scripts
 % chmod +x rqt_mypkg
 ```
+
+## Run Catkin Make
+```
+% cd [catkin workspace]
+% catkin_make
+```
+
 ## Run your RQT script
 ```
 rosrun rqt_mypkg rqt_mypkg
