@@ -49,10 +49,11 @@ create a plugin.xml file with the following code:
 # 2. Create a python plugin
 Based on the [rQT Python Plugin ROS Tutorial](http://wiki.ros.org/rqt/Tutorials/Writing%20a%20Python%20Plugin)
 
-create src/rqt_mypkg/ inside the rqt_mypkg package directory
+## Create a GUI Layout
+You can create a GUI using QT designer. This will output a .ui file. For this exercise, we will use a pre-made gui. Create a 'resource' folder inside the rqt_mypkg folder. 
 ```
 % roscd rqt_mypkg
-% mkdir -p src/rqt_mypkg
+% mkdir resource
 ```
 
 note: if roscd does not work, 
@@ -60,6 +61,50 @@ note: if roscd does not work,
 % cd ~/[workspace_name]
 % source ./devel/setup.bash
 ```
+
+within the resource folder, create a file called 'MyPlugin.ui' with the following contents
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="Test">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>98</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Original Name</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
+```
+
+## GUI Script 
+make the src/rqt_mypkg/ folder inside the rqt_mypkg package directory
+```
+% roscd rqt_mypkg
+% mkdir -p src/rqt_mypkg
+```
+
 create __init__.py
 ```
 % cd src/rqt_mypkg/
@@ -135,7 +180,8 @@ class MyPlugin(Plugin):
 ```
 note: `from python_qt_binding.QtGui import QWidget` has been modified to `from python_qt_binding.QtWidgets import QWidget`
 
-Next, create a 'scripts' folder
+## Main script
+Create a 'scripts' folder
 ```
 % roscd rqt_mypkg
 % mkdir scripts
@@ -180,7 +226,6 @@ uncomment the following from the CMakeLists.txt
 ```
 catkin_python_setup()
 ```
-
 
 
 ```
