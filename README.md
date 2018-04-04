@@ -315,3 +315,6 @@ In a new terminal window
 ```
 rosrun rqt_mypkg rqt_mypkg
 ```
+
+## Make your own .ui file
+Using qtdesigner, make a plain widget. 
